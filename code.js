@@ -1,5 +1,4 @@
 function tsp_ls(distance_matrix) {
-    let factorial = [1,2,6,24,120]; // Writing this here because it's stupid javascript doesn't have a n! function
     let choice = [0,0];
     let n = distance_matrix.length;
     let path = Array.from(Array(n).keys());
@@ -8,7 +7,7 @@ function tsp_ls(distance_matrix) {
     if(distance_matrix.length < 3) return 0;
     // I'm going to stop when I've run n! times because it 
     // seems to be more than enough times to run this algorithm for the size of the graphs.
-    for(iter = 0; iter < factorial[n]; iter++){ 
+    for(iter = 0; iter < factorial(n); iter++){ 
         randList = Array.from(Array(n-1).keys());
         randList.splice(choice[0]-1,1);
         choice[0] = randList[Math.floor(Math.random() * n-2)];
@@ -63,4 +62,14 @@ function ascendList(lowEnd, highEnd){
         list.push(i);
     }
     return list;
+}
+
+// Wrote this here because it's stupid that javascript doesn't have a factorial function
+function factorial(n, fact = 1){
+    if (n <= 0){
+        return fact;
+    }
+    else{
+        return factorial(n-1, fact*n);
+    }
 }
