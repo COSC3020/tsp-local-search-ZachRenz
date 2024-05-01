@@ -21,7 +21,6 @@ function tsp_ls(distance_matrix) {
         newVal = traversePath(path, distance_matrix);
         (newVal < pathVal) ? pathVal = newVal : twoOptSwap(choice[0], choice[1], path);
     }
-    console.log(pathVal);
     return pathVal;
 }
 
