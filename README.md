@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/C_k9ew3E)
 # Traveling Salesperson Problem -- Local Search
 
 This exercise is about the Traveling Salesperson Problem I mentioned in the
@@ -50,3 +51,11 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+## Answer
+
+The worst-case time complexity for my implementation is pretty bad. The function `ascendList()` will
+always run for `n` time even if the inputs are random, `twoOptSwap()` will also always run for `n`, and `traversePath()` runs for `n` time. The worst case here means that I'm never finding a better path, and I'm alsways running `twoOptSwap()` 
+twice. So, running all this in a $n!$ for loop, the worst-cast complexity of my implementation is $O(n^4n!)$
+
+The only memory that depends on $n$ is the random path I start with, and the `randList` I use to chose new i and k, so the worst-case memory complexity is $O(n)$
